@@ -66,9 +66,9 @@ class Main(Chare):
                                 opts=optsDict, \
                                 ret = True \
                             ).get()
-                myExperiment['reach']['samples'] = {}
+
                 reachSamples = reach.computeReachSamples(myExperiment['samples']['input'], T=T,ret=True).get()
-                myExperiment['reach']['samples']['reachSamples'] = reachSamples                
+                myExperiment['reach']['reachSamples'] = reachSamples                
 
                 
                 print(f'Bounding box computed from samples is {box}')
