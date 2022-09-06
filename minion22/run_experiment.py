@@ -75,7 +75,7 @@ class Main(Chare):
                 print('Time to enumerate regions is: ' + str(time.time()-t))
 
                 with open('results_' + sys.argv[1], 'wb') as fp:
-                    expers = pickle.load(fp)
+                    pickle.dump(expers,fp)
 
         charm.exit()
 
