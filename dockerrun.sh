@@ -111,7 +111,7 @@ then
 fi
 cd ..
 
-CONTAINERS=`docker container ls -a | grep acc23matlab-run:$user | sed -e "s/[ ].*//"`
+CONTAINERS=`docker container ls -a | grep acc23ltireach-run:$user | sed -e "s/[ ].*//"`
 EXISTING_CONTAINER=""
 for CONT in $CONTAINERS; do
     if [ `docker inspect --format='{{.Config.Labels.server}}' $CONT` = "${SERVER}" ]; then
@@ -177,7 +177,7 @@ then
 fi
 
 if [ "$EXISTING_CONTAINER" = "" ]; then
-    docker run --privileged $GPUS --shm-size=${SHMSIZE}gb $INFINIDEVICES $INTERACTIVE $HOSTNETWORK $MAC $PORT $HTTPPORT --label server=${SERVER} $AZUREBIND -v "$(pwd)"/container_results:/home/${user}/results acc23matlab-run:${user} ${user} $INTERACTIVE $SERVER $CORES $PORTNUM $MPIHOSTS "$MPIARGS"
+    docker run --privileged $GPUS --shm-size=${SHMSIZE}gb $INFINIDEVICES $INTERACTIVE $HOSTNETWORK $MAC $PORT $HTTPPORT --label server=${SERVER} $AZUREBIND -v "$(pwd)"/container_results:/home/${user}/results acc23litreach-run:${user} ${user} $INTERACTIVE $SERVER $CORES $PORTNUM $MPIHOSTS "$MPIARGS"
 else
     echo "Restarting container $EXISTING_CONTAINER (command line options except \"--server\" ignored)..."
     docker start $ATTACH $EXISTING_CONTAINER
