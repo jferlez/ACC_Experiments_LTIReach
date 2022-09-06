@@ -74,7 +74,7 @@ class Main(Chare):
                 print(f'Bounding box computed from samples is {box}')
                 print('Time to enumerate regions is: ' + str(time.time()-t))
 
-                with open(sys.argv[1], 'wb') as fp:
+                with open('results_' + sys.argv[1], 'wb') as fp:
                     expers = pickle.load(fp)
 
         charm.exit()
