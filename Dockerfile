@@ -37,20 +37,14 @@ USER ${USER_NAME}
 RUN ssh-keygen -t rsa -q -f /home/${USER_NAME}/.ssh/id_rsa -N ""
 RUN cat /home/${USER_NAME}/.ssh/id_rsa.pub >> /home/${USER_NAME}/.ssh/authorized_keys
 
-RUN git clone --recursive https://github.com/verivital/nnv.git
-WORKDIR /home/${USER_NAME}/tools/nnv/code/nnv/engine
-RUN git clone https://github.com/verivital/nnvmt nnmt
-COPY ./DockerConfig/kerasPrinter.py ./nnmt/src
-
-
-# WORKDIR /home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum
-# RUN python3.9 posetFastCharm_numba.py
+# Now copy over FastBATLLNN code
+RUN git clone --recursive https://github.com/jferlez/FastBATLLNN
 
 WORKDIR /home/${USER_NAME}
 RUN git clone https://github.com/jferlez/ACC2023_Experiments acc23matlab
 
 WORKDIR /home/${USER_NAME}
-# RUN echo "export PYTHONPATH=/home/${USER_NAME}/tools/FastBATLLNN:/home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum:/home/${USER_NAME}/tools/FastBATLLNN/TLLnet:/home/${USER_NAME}/tools/nnenum/src/nnenum" >> /home/${USER_NAME}/.bashrc
+RUN echo "export PYTHONPATH=/home/${USER_NAME}/tools/FastBATLLNN:/home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum:/home/${USER_NAME}/tools/FastBATLLNN/TLLnet:/home/${USER_NAME}/tools/nnenum/src/nnenum" >> /home/${USER_NAME}/.bashrc
 RUN echo "export TERM=xterm-256color" >> /home/${USER_NAME}/.bashrc
 RUN echo "export COLORTERM=truecolor" >> /home/${USER_NAME}/.bashrc
 RUN echo "export TERM_PROGRAM=iTerm2.app" >> /home/${USER_NAME}/.bashrc
