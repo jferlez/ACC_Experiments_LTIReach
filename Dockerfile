@@ -9,7 +9,7 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
 
 # Install fallocate command for swap allocation
-RUN apt-get -y install util-linux
+RUN apt-get -y install util-linux git-lfs
 
 RUN sed -i '16i Port 3000' /etc/ssh/sshd_config
 
@@ -41,7 +41,7 @@ RUN cat /home/${USER_NAME}/.ssh/id_rsa.pub >> /home/${USER_NAME}/.ssh/authorized
 RUN git clone --recursive https://github.com/jferlez/FastBATLLNN
 
 WORKDIR /home/${USER_NAME}
-RUN git clone https://github.com/jferlez/ACC2023_Experiments acc23matlab
+RUN git clone https://github.com/jferlez/ACC_Experiments_LTIReach acc23ltireach
 
 WORKDIR /home/${USER_NAME}
 RUN echo "export PYTHONPATH=/home/${USER_NAME}/tools/FastBATLLNN:/home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum:/home/${USER_NAME}/tools/FastBATLLNN/TLLnet:/home/${USER_NAME}/tools/nnenum/src/nnenum" >> /home/${USER_NAME}/.bashrc
