@@ -54,4 +54,4 @@ else
     PYTHON=""
 fi
 
-cat Dockerfile | sed -u -e $PROCESSING | docker build --no-cache --build-arg USER_NAME=$user --build-arg UID=$UID --build-arg GID=$GID --build-arg CORES=$CORES -t acc23litreach-run:${user} -f- .
+cat Dockerfile | sed -u -e $PROCESSING | docker build --no-cache --build-arg USER_NAME=$user --build-arg UID=$UID --build-arg GID=$GID --build-arg CORES=$CORES -t acc23ltireach-run:${user} -f- .
