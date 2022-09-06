@@ -71,7 +71,7 @@ class Main(Chare):
                 myExperiment['reach']['reachSamples'] = reachSamples                
 
                 
-                print(f'Bounding box computed from samples is {box}')
+
                 print('Time to enumerate regions is: ' + str(time.time()-t))
 
                 with open('results_' + sys.argv[1], 'wb') as fp:
