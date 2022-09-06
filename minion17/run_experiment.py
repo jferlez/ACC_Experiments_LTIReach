@@ -67,8 +67,8 @@ class Main(Chare):
                                 ret = True \
                             ).get()
                 myExperiment['reach']['samples'] = {}
-                myExperiment['reach']['samples']['reachSamples'] = reach.computeReachSamples(myExperiment['samples']['input'], T=T,ret=True).get()
-                
+                reachSamples = reach.computeReachSamples(myExperiment['samples']['input'], T=T,ret=True).get()
+                myExperiment['reach']['samples']['reachSamples'] = reachSamples                
                 myExperiment['reach']['samples']['reachSamplesBox'] = np.vstack([np.min(reachSamples,axis=0), np.max(reachSamples,axis=0)]).T
                 
                 print(f'Bounding box computed from samples is {box}')
