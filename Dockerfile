@@ -1,4 +1,4 @@
-FROM jferlez/matlab_docker:latest
+FROM jferlez/fastbatllnn-deps:latest
 
 ARG USER_NAME
 ARG UID
