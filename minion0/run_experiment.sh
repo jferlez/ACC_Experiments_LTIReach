@@ -6,4 +6,3 @@ cd "$SCRIPT_DIR"
 charmrun +p1 run_experiment.py TLLExperimentGroup20220906001139.p
 ssh 10.0.0.10 "mkdir -p /media/azuredata/minion0"
 scp -r ~/acc23ltireach/minion0 10.0.0.10:/media/azuredata/minion0
-pwsh ~/shutdown_self.ps1
