@@ -44,8 +44,7 @@ WORKDIR /home/${USER_NAME}
 RUN git clone https://github.com/jferlez/ACC_Experiments_LTIReach acc23ltireach
 
 WORKDIR /home/${USER_NAME}
-RUN echo "export PYTHONPATH=/home/${USER_NAME}/tools/FastBATLLNN:/home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum:/home/${USER_NAME}/tools/FastBATLLNN/TLLnet:/home/${USER_NAME}/tools/nnenum/src/nnenum" >> /home/${USER_NAME}/.profile
-RUN echo "export PATH=/usr/mpi/gcc/openmpi-4.1.2a1/bin:\$PATH" >> /home/${USER_NAME}/.profile
+RUN echo "export PYTHONPATH=/home/${USER_NAME}/tools/FastBATLLNN:/home/${USER_NAME}/tools/FastBATLLNN/HyperplaneRegionEnum:/home/${USER_NAME}/tools/FastBATLLNN/TLLnet:/home/${USER_NAME}/tools/nnenum/src/nnenum" >> /home/${USER_NAME}/.bashrc
 RUN echo "export TERM=xterm-256color" >> /home/${USER_NAME}/.bashrc
 RUN echo "export COLORTERM=truecolor" >> /home/${USER_NAME}/.bashrc
 RUN echo "export TERM_PROGRAM=iTerm2.app" >> /home/${USER_NAME}/.bashrc
@@ -56,7 +55,7 @@ RUN echo "set-option -gas terminal-overrides \"*:RGB\"" >> /home/${USER_NAME}/.t
 USER root
 RUN chown -R ${UID}:${GID} /home/${USER_NAME}/
 
-RUN echo "#!/bin/sh" > /usr/local/bin/bk
+RUN echo "#!/bin/bash" > /usr/local/bin/bk
 RUN echo "(" >>  /usr/local/bin/bk
 RUN echo 'echo "Date: `date`"' >>  /usr/local/bin/bk
 RUN echo 'echo "Command: $*"' >>  /usr/local/bin/bk
