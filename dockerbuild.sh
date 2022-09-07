@@ -1,7 +1,6 @@
 #!/bin/bash
 SYSTEM_TYPE=$(uname)
 user=`id -n -u`
-UID=`id -u`
 GID=`id -g`
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
