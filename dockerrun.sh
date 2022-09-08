@@ -157,6 +157,14 @@ then
     sudo swapon /mnt/swapfile
 fi
 
+PYPATH="/home/$USER/tools/FastBATLLNN:/home/$USER/tools/FastBATLLNN/HyperplaneRegionEnum:/home/$USER/tools/FastBATLLNN/TLLnet:/home/$USER/tools/nnenum/src/nnenum"
+
+
+echo "#!/bin/bash
+PYTHONPATH=\"$PYPATH:\$PYTHONPATH\"
+mpirun $MPIARGS -np $CORES -x PYTHONPATH=\"$PYPATH:\$PYTHONPATH\" /usr/bin/python3.10 \"\$@\"" > /usr/local/bin/charming
+
+chmod 755 /usr/local/bin/charming
 
 
 INFINIDEVICES=""
