@@ -53,7 +53,7 @@ SCRIPT_DIR=$( cd -- \"$( dirname -- \"${BASH_SOURCE[0]}\" )\" &> /dev/null && pw
 cd ..\n\
 git pull\n\
 cd \"$SCRIPT_DIR\"\n\
-charmrun +p1 run_experiment.py ' + moduleName + '.p' + '\n\
+/usr/local/bin/charming run_experiment.py ' + moduleName + '.p' + '\n\
 ssh 10.0.0.10 \"mkdir -p /media/azuredata/' + basePath + '\"\n\
 scp -r ~/acc23ltireach/' + basePath + ' 10.0.0.10:/media/azuredata/' + basePath + '\n\
 pwsh ~/shutdown_self.ps1', file=fp)
