@@ -67,7 +67,7 @@ class Main(Chare):
                                 ret = True \
                             ).get()
 
-                reachSamples = reach.computeReachSamples(myExperiment['samples']['input'], T=T,ret=True).get()
+                reachSamples = reach.computeReachSamples(myExperiment['samples']['input'], T=T, reachBoxes=myExperiment['reach']['reach'], ret=True).get()
                 myExperiment['reach']['reachSamples'] = reachSamples                
 
                 
