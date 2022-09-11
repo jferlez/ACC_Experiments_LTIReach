@@ -62,7 +62,7 @@ class Main(Chare):
                 T = 3
                 myExperiment['reach'] = {}
                 myExperiment['reach']['reach'] = reach.computeLTIReach( \
-                                T=T, epsilon=0.2, \
+                                T=T, epsilon=0.1, \
                                 opts=optsDict, \
                                 ret = True \
                             ).get()
