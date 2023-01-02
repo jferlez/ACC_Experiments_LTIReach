@@ -14,11 +14,11 @@ SERVER="run"
 ATTACH=""
 HOSTS=""
 RESET=""
-MPIHOSTS=""
+MPIHOSTS="127.0.0.1:localhost"
 MPIARGS="--mca pml ob1 --mca btl tcp,vader,self"
-CORES=""
-REMOVE=""
-MAC=""
+CORES="1"
+REMOVE="no"
+MAC="none"
 SWAP=""
 for argwhole in "$@"; do
     IFS='=' read -r -a array <<< "$argwhole"
@@ -41,6 +41,10 @@ for argwhole in "$@"; do
         --add-swap) SWAP="on"
     esac
 done
+
+if [ $MAC == "none" ]; then
+    MAC=""
+fi
 
 re='^[0-9]+$'
 if ! [[ $PORT =~ $re ]] ; then
